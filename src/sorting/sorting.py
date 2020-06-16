@@ -4,7 +4,10 @@ def merge(arrA, arrB):
     merged_arr = [0] * elements
 
     # Your code here
-    
+    joinedArr = arrA + arrB
+    for i in joinedArr:
+        merged_arr.pop(0)
+        merged_arr.append(i)
 
     return merged_arr
 
@@ -19,9 +22,11 @@ def merge_sort(arr):
 
 
 
+#TESTING
+# arrA = [1, 2, 3, 4, 5]
+# arrB = [6, 7, 8, 9, 10]
 
-
-
+# print(merge(arrA, arrB))
 
 
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't 
