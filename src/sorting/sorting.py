@@ -22,8 +22,28 @@ def merge_sort(arr):
         merge_sort(left)
         merge_sort(right)
 
-        
+        leftIndex = 0
+        rightIndex = 0
+        merged = 0
 
+        while leftIndex < len(left) and rightIndex < len(right):
+            if left[leftIndex] < right[rightIndex]:
+                arr[merged] = left[leftIndex]
+                leftIndex +=1
+            else:
+                arr[merged] = right[rightIndex]
+                rightIndex += 1
+            merged += 1
+
+        while leftIndex < len(left):
+            arr[merged] = left[leftIndex]
+            leftIndex += 1
+            merged += 1
+
+        while rightIndex < len(right):
+            arr[merged] = right[rightIndex]
+            rightIndex += 1
+            merged += 1
 
     return arr
 
