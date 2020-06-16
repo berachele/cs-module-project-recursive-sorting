@@ -14,6 +14,15 @@ def merge(arrA, arrB):
 # TO-DO: implement the Merge Sort function below recursively
 def merge_sort(arr):
     # Your code here
+    if len(arr) > 1:
+        mid = len(arr)//2
+        left = arr[:mid]
+        right = arr[mid:]
+        #recursively breaking down left and right side
+        merge_sort(left)
+        merge_sort(right)
+
+        
 
 
     return arr
