@@ -4,16 +4,6 @@ def merge(arrA, arrB):
     merged_arr = [0] * elements
 
     # Your code here
-    joinedArr = arrA + arrB
-    for i in joinedArr:
-        merged_arr.pop(0)
-        merged_arr.append(i)
-
-    return merged_arr
-
-# TO-DO: implement the Merge Sort function below recursively
-def merge_sort(arr):
-    # Your code here
     if len(arr) > 1:
         mid = len(arr)//2
         left = arr[:mid]
@@ -21,29 +11,36 @@ def merge_sort(arr):
         #recursively breaking down left and right side
         merge_sort(left)
         merge_sort(right)
+        
+    leftIndex = 0
+    rightIndex = 0
+    merged = 0
 
-        leftIndex = 0
-        rightIndex = 0
-        merged = 0
-
-        while leftIndex < len(left) and rightIndex < len(right):
-            if left[leftIndex] < right[rightIndex]:
-                arr[merged] = left[leftIndex]
-                leftIndex +=1
-            else:
-                arr[merged] = right[rightIndex]
-                rightIndex += 1
-            merged += 1
-
-        while leftIndex < len(left):
+    while leftIndex < len(left) and rightIndex < len(right):
+        if left[leftIndex] < right[rightIndex]:
             arr[merged] = left[leftIndex]
-            leftIndex += 1
-            merged += 1
-
-        while rightIndex < len(right):
+            leftIndex +=1
+        else:
             arr[merged] = right[rightIndex]
             rightIndex += 1
-            merged += 1
+        merged += 1
+
+    while leftIndex < len(left):
+        arr[merged] = left[leftIndex]
+        leftIndex += 1
+        merged += 1
+
+    while rightIndex < len(right):
+        arr[merged] = right[rightIndex]
+        rightIndex += 1
+        merged += 1
+
+    return merged_arr
+
+# TO-DO: implement the Merge Sort function below recursively
+def merge_sort(arr):
+    # Your code here
+
 
     return arr
 
