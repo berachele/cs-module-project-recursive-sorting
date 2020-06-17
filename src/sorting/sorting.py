@@ -4,6 +4,35 @@ def merge(arrA, arrB):
     merged_arr = [0] * elements
 
     # Your code here
+    a = 0
+    b = 0
+    # merged = 0
+
+    for merged in range(0, elements):
+    # while a < len(arrA) and b < len(arrB):
+            if arrA[a] < arrB[b]:
+                merged_arr[merged] = arrA[a]
+                a +=1
+            else:
+                merged_arr[merged] = arrB[b]
+                b += 1
+            # merged += 1
+
+    while a < len(arrA):
+        merged_arr[merged] = arrA[a]
+        a += 1
+        # merged += 1
+
+    while b < len(arrB):
+        merged_arr[merged] = arrB[b]
+        b += 1
+        # merged += 1
+        
+    return merged_arr
+
+# TO-DO: implement the Merge Sort function below recursively
+def merge_sort(arr):
+    # Your code here
     if len(arr) > 1:
         mid = len(arr)//2
         left = arr[:mid]
@@ -11,36 +40,8 @@ def merge(arrA, arrB):
         #recursively breaking down left and right side
         merge_sort(left)
         merge_sort(right)
-        
-    leftIndex = 0
-    rightIndex = 0
-    merged = 0
 
-    while leftIndex < len(left) and rightIndex < len(right):
-        if left[leftIndex] < right[rightIndex]:
-            arr[merged] = left[leftIndex]
-            leftIndex +=1
-        else:
-            arr[merged] = right[rightIndex]
-            rightIndex += 1
-        merged += 1
-
-    while leftIndex < len(left):
-        arr[merged] = left[leftIndex]
-        leftIndex += 1
-        merged += 1
-
-    while rightIndex < len(right):
-        arr[merged] = right[rightIndex]
-        rightIndex += 1
-        merged += 1
-
-    return merged_arr
-
-# TO-DO: implement the Merge Sort function below recursively
-def merge_sort(arr):
-    # Your code here
-
+        arr = merge(left, right)
 
     return arr
 
@@ -48,11 +49,6 @@ def merge_sort(arr):
 
 
 
-#TESTING
-# arrA = [1, 2, 3, 4, 5]
-# arrB = [6, 7, 8, 9, 10]
-
-# print(merge(arrA, arrB))
 
 
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't 
