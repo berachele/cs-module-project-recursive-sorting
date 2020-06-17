@@ -6,27 +6,26 @@ def merge(arrA, arrB):
     # Your code here
     a = 0
     b = 0
-    # merged = 0
+    merged = 0
 
-    for merged in range(0, elements):
-    # while a < len(arrA) and b < len(arrB):
-            if arrA[a] < arrB[b]:
-                merged_arr[merged] = arrA[a]
-                a +=1
-            else:
-                merged_arr[merged] = arrB[b]
-                b += 1
-            # merged += 1
+    while a < len(arrA) and b < len(arrB):
+        if arrA[a] < arrB[b]:
+            merged_arr[merged] = arrA[a]
+            a +=1
+        else:
+            merged_arr[merged] = arrB[b]
+            b += 1
+        merged += 1
 
     while a < len(arrA):
         merged_arr[merged] = arrA[a]
         a += 1
-        # merged += 1
+        merged += 1
 
     while b < len(arrB):
         merged_arr[merged] = arrB[b]
         b += 1
-        # merged += 1
+        merged += 1
         
     return merged_arr
 
@@ -35,11 +34,8 @@ def merge_sort(arr):
     # Your code here
     if len(arr) > 1:
         mid = len(arr)//2
-        left = arr[:mid]
-        right = arr[mid:]
-        #recursively breaking down left and right side
-        merge_sort(left)
-        merge_sort(right)
+        left = merge_sort(arr[:mid])
+        right = merge_sort(arr[mid:])
 
         arr = merge(left, right)
 
