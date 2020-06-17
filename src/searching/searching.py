@@ -1,15 +1,12 @@
 # TO-DO: Implement a recursive implementation of binary search
 def binary_search(arr, target, start, end):
     # Your code here
-    #base case--where do I want it to end?
     mid = (start + end)//2
-    #change it's state to move towards base case
     if len(arr) == 0:
         return -1
     elif target == arr[mid]:
         return mid
     elif target < arr[mid]:
-        #call itself
         return binary_search(arr, target, start, mid-1)
     elif target > arr[mid]:
         return binary_search(arr, target, mid+1, end)
